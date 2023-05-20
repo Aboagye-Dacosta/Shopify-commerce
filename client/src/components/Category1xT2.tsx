@@ -7,7 +7,7 @@ function Category1xT2({
 }: Props) {
   return (
     <div
-      className={`flex-1 h-full shadow hover:shadow-slate-300 transition-shadow duration-200 shadow-slate-200 rounded-2xl px-3 w-full group`}
+      className={`flex-1 h-full shadow hover:shadow-slate-300 transition-shadow duration-200 shadow-slate-100 rounded-2xl px-3 w-full group`}
     >
       <img
         src={image}

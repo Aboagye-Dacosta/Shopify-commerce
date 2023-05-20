@@ -1,7 +1,10 @@
 import { RiSearchLine, BsBag, RxHamburgerMenu, IoClose } from "react-icons/all";
+import { shallow } from "zustand/shallow";
 import { Link } from "react-router-dom";
+
 import { appStrings } from "../document/strings";
 import React from "react";
+import useAppStore from "../store/appStore";
 
 type Route = { path: string; label: string };
 
@@ -18,8 +21,13 @@ function Navigation({
   cartRoute,
   routeCallBack,
 }: NavigationProps) {
+  const [setSelectedNav, selectedNav] = useAppStore(
+    (state) => [state.setSelectedNav, state.selectedNav],
+    shallow
+  );
+
   return (
-    <div className="flex items-center justify-between w-full  py-2">
+    <div className="flex items-center justify-between w-full  py-2 px-10">
       <section className="flex items-center justify-between ">
         <input
           type="checkbox"
@@ -48,7 +56,15 @@ function Navigation({
         </h1>
         <div className="hidden md:flex place-items-baseline">
           {routes.map((route, index) => (
-            <Link to={route.path} key={index} className="mx-4">
+            <Link
+              to={route.path}
+              key={index}
+              onClick={() => setSelectedNav(index)}
+              className={`mx-2 py-1 px-2 z-10 relative ${
+                selectedNav === index &&
+                "text-white after:h-full after:w-full after:bg-red-500 after:absolute after:left-0 after:top-0 after:-z-10 after:-skew-x-12"
+              }`}
+            >
               <div className="text-center nav-link">{route.label}</div>
             </Link>
           ))}

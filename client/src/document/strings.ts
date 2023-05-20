@@ -12,12 +12,23 @@ import { NewsItemProps } from "../components/NewsItem";
 
 export const appStrings = {
   appTitle: "Hex-store",
+  appDescription: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque,
+              cupiditate aliquid Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit. Ea aut qui numquam aliquid sapiente et harum
+              suscipit provident? Architecto quod harum eligendi tempore eaque`,
   productItemBtnText: "Add to cart",
   homePageBestSellerTitle: " Best Seller Products",
   homePageBestSellerTitleDesc: "Let your feet be heard",
   newsSectionTitle: "Recent News",
   newsSectionDescription: "How our customers enjoy our services",
 };
+
+export const appContacts = [
+  "+2272839238328",
+  "someone@mail.com",
+  "company ,Austan streets-44",
+  "German host",
+];
 
 export const heroStrings = {
   heading: "Let your feet be heard - Audible",

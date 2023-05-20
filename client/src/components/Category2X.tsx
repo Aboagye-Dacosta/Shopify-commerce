@@ -19,7 +19,7 @@ function Category2X({
 }: Props) {
   return (
     <div
-      className={`hover:shadow-slate-300 transition-shadow duration-200 grid grid-cols-[1fr_2fr] shadow shadow-slate-200 rounded-2xl h-[20rem] px-5 group`}
+      className={`hover:shadow-slate-300 transition-shadow duration-200 grid grid-cols-[1fr_2fr] shadow shadow-slate-100 rounded-2xl h-[20rem] px-5 group`}
     >
       <div className="flex flex-col items-start justify-center">
         <h3 className="text-[1rem] md:text-[2rem] font-noto font-bold">

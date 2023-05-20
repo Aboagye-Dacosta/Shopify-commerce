@@ -7,7 +7,7 @@ function Category1xT1({
 }: Props) {
   return (
     <div
-      className={`flex-1 mr-5 px-3 flex flex-col shadow shadow-slate-200 hover:shadow-slate-300 transition-shadow duration-200 items-center justify-center py-5 h-full rounded-2xl group`}
+      className={`flex-1 mr-5 px-3 flex flex-col shadow shadow-slate-100 hover:shadow-slate-200 transition-shadow duration-200 items-center justify-center py-5 h-full rounded-2xl group`}
     >
       <h3 className="text-[1.5rem] text-slate-300 font-sans font-bold">
         {heading}

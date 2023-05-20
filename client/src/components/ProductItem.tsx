@@ -1,14 +1,9 @@
-import {
-  BsStar,
-  BsBag,
-  BsCurrencyDollar,
-  BsStarFill,
-  BsStarHalf,
-} from "react-icons/all";
+import { BsBag, BsCurrencyDollar } from "react-icons/all";
 import { Link } from "react-router-dom";
 import Clickable from "./Clickable";
 import { appStrings } from "../document/strings";
-import { ComponentType } from "react";
+
+import ProductStars from "./ProductStars";
 
 export type Product = {
   id: number;
@@ -25,34 +20,19 @@ type ProductItemProps = {
 };
 
 function ProductItem({ product, onClick }: ProductItemProps) {
-  const stars: ComponentType[] = [];
-  const starCont = Math.floor(product.rating.rate);
-  for (let index = 0; index < starCont; index++) {
-    stars.push(BsStarFill);
-  }
-  if (product.rating.rate - starCont >= 1) {
-    for (let index = 0; index < product.rating.rate - starCont; index++) {
-      stars.push(BsStar);
-    }
-  } else if (product.rating.rate - starCont > 0) {
-    stars.push(BsStarHalf);
-  }
   return (
     <div className="w-full shadow-sm shadow-slate-100 py-5 px-3 flex flex-col items-center justify-between hover:shadow-slate-300">
       <Link to={`/products/${product.id}`} className="w-full">
         <div className="w-full flex items-center justify-center">
-          <img src={product["image"]} alt="" className="h-[10rem] object-contain" />
+          <img
+            src={product["image"]}
+            alt=""
+            className="h-[10rem] object-contain"
+          />
         </div>
         <div className="flex flex-col items-start justify-center mt-5 w-full">
           <div className="flex items-center justify-between w-full">
-            <span className="flex text-orange-500">
-              {stars.map((Star, i) => (
-                <Star key={i} />
-              ))}
-            </span>
-            {/* <span>
-              <span className="bg-slate-900 text-white rounded-xl px-1 py-1 text-sm">views</span> {product.rating.count}
-            </span> */}
+            <ProductStars rate={product.rating.rate} />
           </div>
           <span className="text-[1rem] font-bold text-left">
             {product["title"]}
