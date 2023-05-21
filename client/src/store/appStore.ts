@@ -1,42 +1,30 @@
 import { create } from "zustand";
 import { devtools, persist, createJSONStorage } from "zustand/middleware";
+import productsSlice from "../features/productsSlice";
+import navLinSlice from "../features/navigationSlice";
+import categorySlice from "../features/categoriesSlice";
 
-type AppStore = {
-  navLink: string | null;
-  selectedNav: number;
-  products: [];
-  fetchData: (from: string) => void;
-  setNavLink: (by: string | null) => void;
-  setSelectedNav: (by: number) => void;
-};
+import { CategoriesSlice } from "../features/categoriesSlice";
+import { ProductSlice } from "../features/productsSlice";
+import { NavLinksSlice } from "../features/navigationSlice";
 
-const useAppStore = create<AppStore>()(
+const useAppStore = create<ProductSlice & NavLinksSlice & CategoriesSlice>()(
   devtools(
     persist(
-      (set) => ({
-        navLink: "Home",
-        products: [],
-        selectedNav: 0,
-        fetchData: async (from: string) => {
-          const response = await fetch(from);
-          if (response.ok) {
-            const data = await response.json();
-            set({ products: data });
-          } else {
-            set({ products: [] });
-          }
-        },
-        setNavLink: (by) => set({ navLink: by }),
-        setSelectedNav: (by) => set({ selectedNav: by }),
+      (...a) => ({
+        ...productsSlice(...a),
+        ...navLinSlice(...a),
+        ...categorySlice(...a),
       }),
       {
         name: "app-store",
-        storage: createJSONStorage(() => sessionStorage),
+        storage: createJSONStorage(() => localStorage),
       }
     )
   )
 );
 
-useAppStore.getState().fetchData("https://fakestoreapi.com/products");
+useAppStore.getState().setProducts();
+useAppStore.getState().setCategories();
 
 export default useAppStore;

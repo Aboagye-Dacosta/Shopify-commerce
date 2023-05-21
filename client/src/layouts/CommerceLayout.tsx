@@ -23,7 +23,7 @@ function CommerceLayout({ children }: AppProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start  pt-5 w-screen bg-white min-h-screen relative">
+    <div className="flex flex-col items-center justify-start  pt-5 w-full bg-white min-h-screen relative">
       <Navigation
         cartRoute={cartRoute}
         loginRoute={loginRoute}

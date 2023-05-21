@@ -6,7 +6,7 @@ import { appStrings } from "../document/strings";
 import ProductStars from "./ProductStars";
 
 export type Product = {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;

@@ -3,15 +3,13 @@ import InfoTab from "../components/InfoTab";
 import PromoCard from "../components/PromoCard";
 import Container from "../components/Container";
 import CommerceLayout from "../layouts/CommerceLayout";
-// import CategoryGroup from "../components/CategoryGroup";
+
 import ProductsDisplay from "../components/ProductListings";
 import SectionContainer from "../components/SectionContainer";
 import useAppStore from "../store/appStore";
 import { shallow } from "zustand/shallow";
 import {
   heroStrings,
-  // categoryRow1,
-  // categoryRow2,
   infoTabs,
   promoCardStrings,
   appStrings,
@@ -20,9 +18,12 @@ import {
 import NewsDisplay from "../components/NewsDisplay";
 
 function HomePage() {
-  const [data] = useAppStore((state) => [state.products], shallow);
+  const [data] = useAppStore(
+    (state) => [state.products, state.categories],
+    shallow
+  );
 
-  // fetchData("https://fakestoreapi.com/products");
+  // console.log(categories);
   return (
     <CommerceLayout>
       <div>

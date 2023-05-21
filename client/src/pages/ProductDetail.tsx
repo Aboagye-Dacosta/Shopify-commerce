@@ -98,7 +98,11 @@ function ProductDetail() {
           >
             <ProductsDisplay
               products={products
-                .filter((item) => item["category"] == product["category"])
+                .filter(
+                  (item) =>
+                    item["category"] == product["category"] &&
+                    item.id !== product.id
+                )
                 .slice(0, 9)}
             />
           </SectionContainer>

@@ -5,7 +5,7 @@ import {
   GiTakeMyMoney,
 } from "react-icons/all";
 
-import { Props } from "../components/Category2X";
+import { Category } from "../components/CategoryItem";
 import { InfoTabProps } from "../components/InfoTab";
 import { PromoCardProps } from "../components/PromoCard";
 import { NewsItemProps } from "../components/NewsItem";
@@ -43,66 +43,47 @@ export const heroStrings = {
   btnString: "Let's shop",
 };
 
-export const categoryRow1: Props[] = [
+export const categories: Category[] = [
   {
-    categoryItem: {
-      title: "Puma Fit",
-      btnText: "Browse",
-      heading: "You will love it",
-      image: "/images/Kick-1.png",
-    },
-    onClick: () => console.log("clicked"),
+    title: "Puma Fit",
+    description: "Browse",
+    heading: "You will love it",
+    image: "/images/Kick-1.png",
   },
-  {
-    categoryItem: {
-      title: "Jordan",
-      btnText: " New is always good",
-      heading: "Browse",
-      image: "../../public/images/kick-3-blue.png",
-    },
-    onClick: () => console.log("clicked"),
-  },
-  {
-    categoryItem: {
-      title: "Nike Brand",
-      btnText: "Browse",
-      heading: "Trend",
-      image: "/images/Kick-2.png",
-    },
-    onClick: () => console.log("clicked"),
-  },
-];
 
-export const categoryRow2: Props[] = [
   {
-    categoryItem: {
-      title: "Nike",
-      btnText: "Browse",
-      heading: "Trend",
-      image: "../../public/images/Kick-3-gray.png",
-    },
-
-    onClick: () => console.log("clicked"),
+    title: "Jordan",
+    description: " New is always good",
+    heading: "Browse",
+    image: "../../public/images/kick-3-blue.png",
   },
-  {
-    categoryItem: {
-      title: "Puma Fit",
-      btnText: "Browse",
-      heading: "You will love it",
-      image: "/images/Kick-1-flipped.png",
-    },
 
-    onClick: () => console.log("clicked"),
+  {
+    title: "Nike Brand",
+    description: "Browse",
+    heading: "Trend",
+    image: "/images/Kick-2.png",
   },
-  {
-    categoryItem: {
-      title: "Jordan",
-      btnText: " New is always good",
-      heading: "Browse",
-      image: "../../public/images/kick-3-black.png",
-    },
 
-    onClick: () => console.log("clicked"),
+  {
+    title: "Nike",
+    description: "Browse",
+    heading: "Trend",
+    image: "../../public/images/Kick-3-gray.png",
+  },
+
+  {
+    title: "Puma Fit",
+    description: "Browse",
+    heading: "You will love it",
+    image: "/images/Kick-1-flipped.png",
+  },
+
+  {
+    title: "Jordan",
+    description: " New is always good",
+    heading: "Browse",
+    image: "../../public/images/kick-3-black.png",
   },
 ];
 
