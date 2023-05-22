@@ -3,12 +3,13 @@ import useAppStore from "../store/appStore";
 import CommerceLayout from "../layouts/CommerceLayout";
 import ProductStars from "../components/ProductStars";
 import { BsCurrencyDollar, BsBag } from "react-icons/all";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import SectionContainer from "../components/SectionContainer";
 import ProductsDisplay from "../components/ProductListings";
 
 function ProductDetail() {
   const [toggleTab, setToggleTab] = useState(true);
+  const focusRef = useRef<HTMLDivElement>(null);
 
   const { id } = useParams();
   const products = useAppStore((state) => state.products);
@@ -16,13 +17,26 @@ function ProductDetail() {
     state.products.find((p) => p["id"] == id)
   );
 
+  useEffect(() => {
+    if (focusRef) {
+      focusRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  });
+
   if (!product) {
     return <div>Product does not exist</div>;
   }
 
   return (
     <CommerceLayout>
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] px-10 py-10 mx-36 gap-5">
+      <div
+        className="grid grid-cols-1 md:grid-cols-[2fr_3fr] px-10 py-10 mx-36 gap-5"
+        ref={focusRef}
+      >
         <div className="py-3 px-3 shrink-0 border border-slate-200 flex items-center justify-center">
           <img
             src={product["image"]}
